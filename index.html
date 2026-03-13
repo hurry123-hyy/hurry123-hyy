@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Haoahuyiyue | Academic Homepage</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --card: #121933;
+      --card2: #17203f;
+      --text: #eaf0ff;
+      --muted: #a8b3cf;
+      --line: #2a3766;
+      --accent: #7aa2ff;
+      --accent2: #89dceb;
+      --tag: #22315f;
+      --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --maxw: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+      background: linear-gradient(180deg, #0b1020 0%, #0f1530 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    a { color: var(--accent2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      backdrop-filter: blur(10px);
+      background: rgba(11,16,32,.75);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      z-index: 10;
+    }
+    .nav .inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav .brand { font-weight: 700; letter-spacing: .2px; }
+    .nav .links a { margin-left: 18px; color: var(--muted); }
+    .nav .links a:hover { color: var(--text); text-decoration: none; }
+
+    .hero {
+      padding: 72px 0 36px;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .85fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .panel {
+      background: linear-gradient(180deg, var(--card) 0%, var(--card2) 100%);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+    }
+    .hero .intro {
+      padding: 34px 30px;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-size: 13px;
+      color: var(--accent2);
+      background: rgba(137,220,235,.10);
+      padding: 6px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 40px;
+      line-height: 1.15;
+    }
+    .subtitle {
+      font-size: 18px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+    .hero p {
+      margin: 0 0 18px;
+      color: #d7def1;
+    }
+    .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: #1b2750;
+      color: var(--text);
+    }
+    .btn.primary {
+      background: linear-gradient(90deg, #6b8cff, #7ed6ff);
+      color: #08111f;
+      font-weight: 700;
+      border: none;
+    }
+
+    .profile {
+      padding: 28px;
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 18px;
+      align-items: center;
+    }
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #7aa2ff, #89dceb);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 28px;
+      color: #08111f;
+    }
+    .meta h3 {
+      margin: 0 0 6px;
+      font-size: 22px;
+    }
+    .meta div {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    section {
+      padding: 18px 0 0;
+    }
+    .sec-title {
+      margin: 0 0 14px;
+      font-size: 22px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .card {
+      padding: 20px;
+      background: linear-gradient(180deg, var(--card) 0%, var(--card2) 100%);
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+    }
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .tag {
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: var(--tag);
+      color: #dbe5ff;
+      font-size: 13px;
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .project h3 {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: baseline;
+    }
+    .project h3 span {
+      font-size: 12px;
+      color: var(--accent2);
+      font-weight: 600;
+    }
+    .project .links {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .footer {
+      padding: 36px 0 60px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .cards,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+      h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav">
+    <div class="inner">
+      <div class="brand">haoahuyiyue</div>
+      <div class="links">
+        <a href="#about">关于</a>
+        <a href="#skills">技能</a>
+        <a href="#projects">项目</a>
+        <a href="#links">链接</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="panel intro">
+          <div class="eyebrow">Academic / Engineering Portfolio</div>
+          <h1>Hi, 我是你的名字</h1>
+          <div class="subtitle">Sparse Computing · Chiplet Architecture · Performance Modeling</div>
+          <p>
+            我主要关注稀疏矩阵计算、Chiplet 系统建模、片上互连与性能评估。
+            这个页面用于集中展示我的代表项目、研究方向与公开代码。
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="https://gitee.com/haoahuyiyue">Gitee 主页</a>
+            <a class="btn" href="mailto:your_email@example.com">邮箱</a>
+            <a class="btn" href="#projects">代表项目</a>
+          </div>
+        </div>
+
+        <div class="panel profile">
+          <div class="avatar">H</div>
+          <div class="meta">
+            <h3>你的名字</h3>
+            <div>Central South University</div>
+            <div>Researcher / Graduate Student</div>
+            <div>方向：SpGEMM / TriSpGEMM / Chiplet / gem5 / NoC</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 class="sec-title">About</h2>
+      <div class="card">
+        <p>
+          我当前的工作聚焦于稀疏线性代数加速器、Chiplet 共享内存系统、互连网络建模与体系结构性能分析。
+          近期项目包括 TriSpGEMM 端到端流式加速、gem5 多 Chiplet 共享内存系统复现与 Popnet 互连仿真分析。
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2 class="sec-title">Skills</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Programming</h3>
+          <p>C++ / Python / Bash / LaTeX</p>
+          <div class="tags">
+            <span class="tag">C++</span>
+            <span class="tag">Python</span>
+            <span class="tag">OpenMP</span>
+            <span class="tag">CUDA</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Architecture Tools</h3>
+          <p>gem5, CACTI, simulator scripting, benchmark evaluation</p>
+          <div class="tags">
+            <span class="tag">gem5</span>
+            <span class="tag">CACTI</span>
+            <span class="tag">NoC</span>
+            <span class="tag">Profiling</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Research Topics</h3>
+          <p>Sparse acceleration, memory hierarchy, dataflow, end-to-end performance</p>
+          <div class="tags">
+            <span class="tag">SpGEMM</span>
+            <span class="tag">TriSpGEMM</span>
+            <span class="tag">Chiplet</span>
+            <span class="tag">Shared Memory</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2 class="sec-title">Featured Projects</h2>
+      <div class="project-grid">
+        <div class="card project">
+          <h3>
+            <a href="https://gitee.com/haoahuyiyue/your-repo-1">TRIDENT Simulator</a>
+            <span>DAC / Research</span>
+          </h3>
+          <p>
+            面向 TriSpGEMM 的端到端流式加速器建模与性能评估，
+            聚焦中间结果片上生成-消费与带宽/同步开销削减。
+          </p>
+          <div class="links">
+            <a href="https://gitee.com/haoahuyiyue/your-repo-1">代码</a>
+            <a href="#">论文/匿名链接</a>
+          </div>
+        </div>
+
+        <div class="card project">
+          <h3>
+            <a href="https://gitee.com/haoahuyiyue/chiplet-popnet">Chiplet-Popnet</a>
+            <span>Graduation Project</span>
+          </h3>
+          <p>
+            基于 gem5 与 Popnet 的多 Chiplet 共享内存系统与互连仿真工程，
+            保留轻量公开版源码、配置与脚本。
+          </p>
+          <div class="links">
+            <a href="https://gitee.com/haoahuyiyue/chiplet-popnet">代码</a>
+          </div>
+        </div>
+
+        <div class="card project">
+          <h3>
+            <a href="https://gitee.com/haoahuyiyue/your-repo-2">Sparse Matrix Tools</a>
+            <span>Tooling</span>
+          </h3>
+          <p>
+            稀疏矩阵预处理、格式转换、批量运行与结果可视化脚本集合。
+          </p>
+          <div class="links">
+            <a href="https://gitee.com/haoahuyiyue/your-repo-2">代码</a>
+          </div>
+        </div>
+
+        <div class="card project">
+          <h3>
+            <a href="https://gitee.com/haoahuyiyue/your-repo-3">Benchmark & Analysis</a>
+            <span>Infrastructure</span>
+          </h3>
+          <p>
+            面向体系结构实验的数据收集、日志解析、性能建模与图表生成工具。
+          </p>
+          <div class="links">
+            <a href="https://gitee.com/haoahuyiyue/your-repo-3">代码</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="links">
+      <h2 class="sec-title">Links</h2>
+      <div class="card">
+        <div class="tags">
+          <a class="tag" href="https://gitee.com/haoahuyiyue">Gitee</a>
+          <a class="tag" href="https://github.com/yourname">GitHub</a>
+          <a class="tag" href="https://blog.csdn.net/yourname">CSDN</a>
+          <a class="tag" href="mailto:your_email@example.com">Email</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="footer">
+      © 2026 你的名字 · Built with static HTML for Gitee Pages
+    </div>
+  </div>
+</body>
+</html>
